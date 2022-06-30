@@ -3,7 +3,7 @@ name = "salve"
 version = "0.0.1"
 authors = ["Tamme Schichler <tamme@schichler.dev>"]
 edition = "2018"
-description = "TODO_DESCRIPTION"
+description = "Greasy parsing extensions for `syn`, to soften proc macro errors."
 license = "MIT OR Apache-2.0"
 repository = "https://github.com/Tamschi/salve"
 homepage = "https://github.com/Tamschi/salve/tree/v0.0.1"
@@ -23,6 +23,7 @@ include = [
 	"SECURITY.md",
 ]
 resolver = "2"
+rust-version = "1.61"
 publish = false
 
 [badges]
