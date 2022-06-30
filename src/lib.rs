@@ -87,7 +87,7 @@ impl ParseOrForgeExt for ParseBuffer<'_> {
 impl Forge for Ident {
 	fn forge(span: Span) -> Self {
 		Ident::new(
-			&format!("__fallback_ident_{}", FORGERY_COUNTER.next()),
+			&format!("__forged_ident_{}", FORGERY_COUNTER.next()),
 			span.resolved_at(Span::mixed_site()),
 		)
 	}
