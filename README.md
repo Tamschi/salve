@@ -37,7 +37,7 @@ use syn::{parse::ParseStream, Error, Token};
 
 pub fn parse_triple(input: ParseStream, errors: &mut Vec<Error>) -> (Ident, Token![,], Ident) {
   (
-    // Parsing will continue here regardless of errors, yielding dummy values.
+    // Parsing will continue here regardless of errors, yielding dummy values iff needed.
     // Errors are collected for later use.
     input.parse_or_forge().catch_item(errors),
     input.parse_or_forge().catch_item(errors),
