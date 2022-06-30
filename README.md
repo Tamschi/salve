@@ -49,6 +49,7 @@ pub fn macro_transform(input: ParseStream) -> TokenStream {
   let mut errors = vec![];
   let (first, _, second) = parse_triple(input, &mut errors);
   if !input.is_empty() {
+    // Added last, since this is often incidental.
     errors.push(Error::new_spanned(
       input.parse::<TokenStream>().expect("infallible"),
       "Unexpected tokens.",
@@ -56,7 +57,7 @@ pub fn macro_transform(input: ParseStream) -> TokenStream {
   }
   let errors = errors.into_iter().map(Error::into_compile_error);
   quote_spanned! {Span::mixed_site()=>
-    #(#errors)*
+    #(#errors)* // Emit parsing errors first, for better visibility.
 
     // Even if `second` is unavailable, `first` may be present, reducing errors elsewhere.
     #[automatically_derived]
