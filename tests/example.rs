@@ -32,7 +32,7 @@ pub fn macro_transform(input: ParseStream) -> TokenStream {
 		#[automatically_derived]
 		struct #first;
 
-		// Even if `first` is unavailable, `seconds` may be present, reducing errors elsewhere.
+		// Even if `first` is unavailable, `second` may be present, reducing errors elsewhere.
 		#[automatically_derived]
 		struct #second;
 	}
